@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Projeto 01</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="estilo/style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 	<meta name="keywords" content="Palavras, Separadas, Por, Vírgulas." />
 	<meta name="description" content="Descrição do Meu WebSite." />
