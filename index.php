@@ -117,13 +117,6 @@
 		</div><!--center-->
 	</footer>
 	<script src="js/jquery.js"></script>
-	<script>
-		$(function(){
-			/*
-			var mensagem = "Olá Mundo!"
-			alert(mensagem);
-			*/
-		})
-	</script>
+	<script src="js/scripts.js"></script>
 </body>
 </html>
