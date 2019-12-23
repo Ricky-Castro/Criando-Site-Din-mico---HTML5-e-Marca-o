@@ -1,10 +1,11 @@
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Projeto 01</title>
-	<link rel="stylesheet" href="estilo/fontawesome/css/all.css">
+	<link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilo/fontawesome/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="estilo/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo INCLUDE_PATH; ?>estilo/style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 	<meta name="keywords" content="Palavras, Separadas, Por, Vírgulas." />
 	<meta name="description" content="Descrição do Meu WebSite." />
@@ -14,13 +15,13 @@
 
 <header>
 	<div class="center">
-		<div class="logo left">LogoMarca</div><!--Logo-->
+		<div class="logo left"><a href="/">LogoMarca</a></div><!--Logo-->
 		<nav class="desktop right">
 			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="">Sobre</a></li>
-				<li><a href="">Serviços</a></li>
-				<li><a href="">Contato</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Sobre">Sobre</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Servico">Serviços</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Contato">Contato</a></li>
 			</ul>
 		</nav>
 		<nav class="mobile right">
@@ -28,10 +29,10 @@
 				<i class="fas fa-bars"></i>
 			</div><!--botao-menu-mobile-->
 			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="">Sobre</a></li>
-				<li><a href="">Serviços</a></li>
-				<li><a href="">Contato</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Sobre">Sobre</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Servico">Serviços</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>Contato">Contato</a></li>
 			</ul>
 		</nav>
 		<div class="clear"></div>
@@ -55,7 +56,7 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet lorem non leo feugiat pulvinar. Nunc commodo posuere arcu, ut consequat ante viverra eu. Integer risus est, sodales sed urna et, pulvinar aliquam sem. Donec mi sem, iaculis eu augue vel, ultricies pretium quam. Ut odio ipsum, tincidunt in tortor vel, semper condimentum leo. Phasellus finibus ac mauris in imperdiet. Praesent auctor enim nec mi luctus cursus. Maecenas ut ipsum at massa elementum tempor quis et massa. Maecenas id nibh eleifend, sollicitudin nunc vel, commodo velit.</p>
 		</div><!--w50 left-->
 		<div class="w50 left">
-			<img class="right" src="imagens/foto.jpg" />
+			<img class="right" src="<?php echo INCLUDE_PATH; ?>imagens/foto.jpg" />
 		</div><!--w50 left-->
 		<div class="clear"></div>
 		</div><!--center-->
@@ -116,7 +117,7 @@
 			<p>Todos os direitos reservados</p>
 		</div><!--center-->
 	</footer>
-	<script src="js/jquery.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+	<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
 </body>
 </html>

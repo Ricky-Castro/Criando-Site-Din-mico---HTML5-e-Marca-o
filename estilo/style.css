@@ -54,6 +54,11 @@ header .logo{
 	color: white;
 }
 
+.logo a{
+	text-decoration: none;
+	color:white;
+}
+
 .mobile{
 	display: none;
 }
