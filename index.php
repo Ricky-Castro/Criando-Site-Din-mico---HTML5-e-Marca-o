@@ -116,5 +116,14 @@
 			<p>Todos os direitos reservados</p>
 		</div><!--center-->
 	</footer>
+	<script src="js/jquery.js"></script>
+	<script>
+		$(function(){
+			/*
+			var mensagem = "Olá Mundo!"
+			alert(mensagem);
+			*/
+		})
+	</script>
 </body>
 </html>
