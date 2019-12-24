@@ -44,7 +44,7 @@
 	</section><!--especialidades-->
 	<section class="extras">
 		<div class="center">
-			<div class="w50 left depoimento-container">
+			<div id="depoimentos" class="w50 left depoimento-container">
 				<h2 class="title">Depoimentos dos nossos clientes</h2>
 				<div class="depoimento-single">
 					<p class="depoimento-descricao">"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ut nisl vestibulum, interdum nisl a, posuere ipsum. Ut sed dolor sollicitudin, congue augue a, dapibus nunc."</p>
@@ -59,7 +59,7 @@
 					<p class="nome-autor">Lorem Ipsum</p>
 				</div><!--depoimento-single-->
 			</div><!--w50 left-->
-			<div class="w50 left servicos-container">
+			<div id="servicos" class="w50 left servicos-container">
 				<h2 class="title">Serviços</h2>
 				<div class="servicos">
 					<ul>
