@@ -72,11 +72,13 @@
 	</footer>
 	<script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+	<!-- validaçao para carregar o slide somente na home -->
 	<?php 
 		if($url == 'home'){
 	?>	
 	<script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
 	<?php } ?>
+	<!-- validação para carregar o mapa apenas na pagina de contato -->
 	<?php 
 		if($url == 'contato'){
 	?>
