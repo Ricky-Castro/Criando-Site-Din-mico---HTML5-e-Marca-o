@@ -1,6 +1,4 @@
-$(function(){
-
-	var map;
+var map;
 	
 	function initialize() {
 
@@ -74,7 +72,9 @@ $(function(){
 	    	}
 	}
 
-	initialize();
 
+$(function(){
+	
+	initialize();
 	addMarker(-27.609959,-48.576585,'',"Minha Casa",undefined,false);
 })
