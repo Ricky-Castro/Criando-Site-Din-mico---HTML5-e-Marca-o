@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 	<meta name="keywords" content="Palavras, Separadas, Por, Vírgulas." />
 	<meta name="description" content="Descrição do Meu WebSite." />
+	<link rel="icon" href="<?php echo INCLUDE_PATH; ?>favicon.ico" type="image/x-icon" />
 	<meta charset="utf-8">
 </head>
 <body>
@@ -73,19 +74,20 @@
 		</div><!--center-->
 	</footer>
 	<script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+	<script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
+	<script src="<?php echo INCLUDE_PATH; ?>js/map.js"></script>
+	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4'></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
 	<!-- validaçao para carregar o slide somente na home -->
 	<?php 
-		if($url == 'home'){
+		if($url == 'home' || $url == ''){
 	?>	
 	<script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
 	<?php } ?>
-	<!-- validação para carregar o mapa apenas na pagina de contato -->
-	<?php 
+	<?php
 		if($url == 'contato'){
 	?>
-	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4'></script>
-	<script src="<?php echo INCLUDE_PATH; ?>js/map.js"></script>
-	<?php } ?>
+	<?php }	?>
+	<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
 </body>
 </html>

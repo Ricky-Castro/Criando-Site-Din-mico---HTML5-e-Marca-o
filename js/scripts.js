@@ -28,10 +28,16 @@ $(function(){
 	function carregarDinamico(){
 		$('[realtime]').click(function(){
 			var pagina = $(this).attr('realtime');
+			$('.container-principal').hide();
+			$('.container-principal').load(INCLUDE_PATH+'pages/'+pagina+'.php');
 
-			$('.container-principal').load('/Site_Dinamico/pages/'+pagina+'.php');
-			initialize();
-			addMarker(-27.609959,-48.576585,'',"Minha Casa",undefined,false);
+			setTimeout(function(){
+				initialize();
+				addMarker(-27.609959,-48.576585,'',"Minha Casa",undefined,false);
+			},1000);
+
+			$('.container-principal').fadeIn(1000);
+
 			return false;
 		});
 	}
