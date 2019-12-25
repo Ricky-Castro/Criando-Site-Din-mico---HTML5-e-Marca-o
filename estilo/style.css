@@ -260,6 +260,12 @@ footer p{
 }
 
 
+/*Para arrumar scroll-x do IE e EDGE*/
+
+body{
+	overflow-x: hidden;
+}
+
 section.erro-404 h2{
 	text-align: center;
 	color: #444;
