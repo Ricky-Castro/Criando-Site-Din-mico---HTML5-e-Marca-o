@@ -13,6 +13,32 @@
 	<meta charset="utf-8">
 </head>
 <body>
+<?php 
+// Se estiver setado o meu POST acao envie o formulário
+if(isset($_POST['acao'])){
+	// verificação. o email vai estar dentro do post email. se meu email for diferente de vazio.
+	if($_POST['email'] != ''){
+		$email = $_POST['email'];
+		if(filter_var($email, FILTER_VALIDATE_EMAIL)){       //Verificar se o e-mail é válido.
+			$mail = new Email('smtp.gmail.com','emailmaisusado@gmail.com','@hdc*1111','HdC Web Services');
+			$mail->addAddress('hendecastro@gmail.com','Henrique');
+			$corpo = "E-mail cadastrado na home do site:<hr>$email";
+			$info = array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$corpo);
+			$mail->formatarEmail($info);
+			// $email->formatarEmail(array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$email));
+			if($mail->enviarEmail()){
+				echo '<script>alert("Enviado com sucesso.")</script>';
+			}else{
+				echo '<script>alert("Ops! Algo deu errado.")</script>';
+			}
+		}else{
+			echo '<script>alert("Favor informar um e-mail válido.")</script>';
+		}
+	}else{  //caso o contrário...
+		echo '<script>alert("Campos vázios não são permitidos.")</script>';
+	}
+}
+?>
 <base base="<?php echo INCLUDE_PATH; ?>" />
 <?php 
 	$url = isset($_GET['url']) ? $_GET['url'] : 'home';
@@ -25,9 +51,6 @@
 			break;
 	}
  ?>
-
- <?php new Email(); ?>
-
 <header>
 	<div class="center">
 		<div class="logo left"><a href="/">LogoMarca</a></div><!--Logo-->

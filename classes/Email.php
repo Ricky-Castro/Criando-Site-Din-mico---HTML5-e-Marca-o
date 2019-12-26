@@ -3,43 +3,42 @@
 
 	class Email
 	{
-		
-		function __construct()
+		private $mailer;
+
+		public function __construct($host,$username,$senha,$name)
 		{
-			$mail = new PHPMailer;
+			$this->mailer = new PHPMailer;
 
-			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+			$this->mailer->isSMTP();                                      // Set mailer to use SMTP
+			$this->mailer->Host = $host;						  // Specify main and backup SMTP servers
+			$this->mailer->SMTPAuth = true;                               // Enable SMTP authentication
+			$this->mailer->Username = $username;                 // SMTP username
+			$this->mailer->Password = $senha;                           // SMTP password
+			$this->mailer->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			$this->mailer->Port = 587;                                    // TCP port to connect to
 
-			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;                               // Enable SMTP authentication
-			$mail->Username = 'emailmaisusado@gmail.com';                 // SMTP username
-			$mail->Password = '@hdc*1111';                           // SMTP password
-			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-			$mail->Port = 587;                                    // TCP port to connect to
+			$this->mailer->setFrom($username,$name);
+			$this->mailer->isHTML(true);
+			$this->mailer->Charset = 'UTF-8';
 
-			$mail->setFrom('emailmaisusado@gmail.com', 'Mailer');
-			$mail->addAddress('decastrohenrique@yahoo.com.br', 'Henrique');     // Add a recipient
-			// $mail->addReplyTo('info@example.com', 'Information');
-			// $mail->addCC('cc@example.com');
-			// $mail->addBCC('bcc@example.com');
+		}
+		public function addAddress($email,$nome){
+			$this->mailer->addAddress($email,$nome);
+		}
 
-			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-			$mail->isHTML(true);                                  // Set email format to HTML
+		public function formatarEmail($info){
+			$this->mailer->Subject = $info['assunto'];
+			$this->mailer->Body = $info['corpo'];
+			$this->mailer->AltBody = strip_tags($info['corpo']);
+		}
 
-			$mail->Subject = 'Assunto e-mail';
-			$mail->Body    = 'Corpo do meu<b>e-mail</b>';
-			$mail->AltBody = 'Corpo do meu e-mail';
-
-			if(!$mail->send()) {
-			    echo 'Message could not be sent.';
-			    echo 'Mailer Error: ' . $mail->ErrorInfo;
-			} else {
-			    echo 'Message has been sent';
+		public function enviarEmail(){
+			if($this->mailer->send()){
+				return true;
+			}else{
+				return false;
 			}
 		}
 	}
-
 
  ?>
