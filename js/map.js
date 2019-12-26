@@ -75,6 +75,6 @@ var map;
 
 $(function(){
 	
-	initialize();
-	addMarker(-27.609959,-48.576585,'',"Minha Casa",undefined,false);
+	// initialize();
+	// addMarker(-27.609959,-48.576585,'',"Minha Casa",undefined,false);
 })

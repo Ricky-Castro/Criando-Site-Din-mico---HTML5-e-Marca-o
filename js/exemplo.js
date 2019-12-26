@@ -5,7 +5,7 @@ $(function(){
 	var atual = -1;
 	var maximo = $('.box-especialidade').length -1;
 	var timer;
-	var animacaoDelay = 3;
+	var animacaoDelay = 2;
 
 	// chamar a função:
 	executarAnimacao();
