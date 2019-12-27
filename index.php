@@ -14,30 +14,50 @@
 </head>
 <body>
 <?php 
-// Se estiver setado o meu POST acao envie o formulário
-if(isset($_POST['acao'])){
-	// verificação. o email vai estar dentro do post email. se meu email for diferente de vazio.
-	if($_POST['email'] != ''){
-		$email = $_POST['email'];
-		if(filter_var($email, FILTER_VALIDATE_EMAIL)){       //Verificar se o e-mail é válido.
-			$mail = new Email('smtp.gmail.com','emailmaisusado@gmail.com','@hdc*1111','HdC Web Services');
-			$mail->addAddress('hendecastro@gmail.com','Henrique');
-			$corpo = "E-mail cadastrado na home do site:<hr>$email";
-			$info = array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$corpo);
-			$mail->formatarEmail($info);
-			// $email->formatarEmail(array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$email));
-			if($mail->enviarEmail()){
-				echo '<script>alert("Enviado com sucesso.")</script>';
+	// Se estiver setado o meu POST acao envie o formulário
+	if(isset($_POST['acao']) && $_POST['identificador'] == 'form_home'){
+		// verificação. o email vai estar dentro do post email. se meu email for diferente de vazio.
+		if($_POST['email'] != ''){
+			$email = $_POST['email'];
+			if(filter_var($email, FILTER_VALIDATE_EMAIL)){       //Verificar se o e-mail é válido.
+				$mail = new Email('smtp.gmail.com','emailmaisusado@gmail.com','@hdc*1111','HdC Web Services');
+				$mail->addAddress('hendecastro@gmail.com','Henrique');
+				$corpo = "E-mail cadastrado na home do site:<hr>$email";
+				$info = array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$corpo);
+				$mail->formatarEmail($info);
+				// $email->formatarEmail(array('assunto'=>'Um novo e-mail cadastrado no site!','corpo'=>$email));
+				if($mail->enviarEmail()){
+					echo '<script>alert("Enviado com sucesso.")</script>';
+				}else{
+					echo '<script>alert("Ops! Algo deu errado.")</script>';
+				}
 			}else{
-				echo '<script>alert("Ops! Algo deu errado.")</script>';
+				echo '<script>alert("Favor informar um e-mail válido.")</script>';
 			}
-		}else{
-			echo '<script>alert("Favor informar um e-mail válido.")</script>';
+		}else{  //caso o contrário...
+			echo '<script>alert("Campos vázios não são permitidos.")</script>';
 		}
-	}else{  //caso o contrário...
-		echo '<script>alert("Campos vázios não são permitidos.")</script>';
+	}else if(isset($_POST['acao']) && $_POST['identificador'] == 'form_contato'){
+		// $nome = $_POST['nome'];
+		// $email = $_POST['email'];
+		// $mensagem = $_POST['mensagem'];
+		// $telefone = $_POST['telefone'];
+		$assunto = 'Nova mensagem do site!';
+		$corpo = '';
+		foreach ($_POST as $key => $value) {
+			$corpo.=ucfirst($key).": ".$value;
+			$corpo.="<hr>";
+		}
+		$info = array('assunto'=>$assunto,'corpo'=>$corpo);
+		$mail = new Email('smtp.gmail.com','emailmaisusado@gmail.com','@hdc*1111','HdC Web Services');
+		$mail->addAddress('hendecastro@gmail.com','Henrique');
+		$mail->formatarEmail($info);
+		if($mail->enviarEmail()){
+			echo '<script>alert("Enviado com sucesso.")</script>';
+		}else{
+			echo '<script>alert("Ops! Algo deu errado.")</script>';
+		}
 	}
-}
 ?>
 <base base="<?php echo INCLUDE_PATH; ?>" />
 <?php 
